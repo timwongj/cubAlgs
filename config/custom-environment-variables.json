@@ -1,0 +1,25 @@
+{
+  "node": {
+    "ip":"OPENSHIFT_NODEJS_IP",
+    "port":"OPENSHIFT_NODEJS_PORT"
+  },
+  "express": {
+    "session": {
+      "secret":"CUBALGS_EXPRESS_SESSION_SECRET"
+    }
+  },
+  "mongo": {
+    "connectionString":"OPENSHIFT_MONGODB_DB_URL"
+  },
+  "redisStore": {
+    "host": "OPENSHIFT_REDIS_DB_HOST",
+    "port": "OPENSHIFT_REDIS_DB_PORT",
+    "pass": "OPENSHIFT_REDIS_DB_PASSWORD"
+  },
+  "passport": {
+    "facebook": {
+      "clientID":"CUBALGS_FACEBOOK_CLIENT_ID",
+      "clientSecret":"CUBALGS_FACEBOOK_CLIENT_SECRET"
+    }
+  }
+}
