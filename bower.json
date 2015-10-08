@@ -1,0 +1,27 @@
+{
+  "name": "cubalgs",
+  "version": "1.0.0",
+  "authors": [
+    "Tim Wong"
+  ],
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.2",
+    "angular-file-upload": "~2.1.1",
+    "angular-mocks": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "bootstrap": "~3.3.5",
+    "components-font-awesome": "~4.4.0",
+    "jquery-ui": "~1.11.4",
+    "moment": "~2.10.6"
+  }
+}

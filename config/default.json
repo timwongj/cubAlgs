@@ -1,0 +1,30 @@
+{
+  "node": {
+    "ip":"127.0.0.1",
+    "port":"6969"
+  },
+  "express": {
+    "session": {
+      "secret":"yuh wuh duh wuh ily bby"
+    }
+  },
+  "mongo": {
+    "connectionString":"mongodb://localhost/cubalgs"
+  },
+  "redisStore": {
+    "host": "localhost",
+    "port": "6379",
+    "pass": ""
+  },
+  "passport": {
+    "facebook": {
+      "clientID":"uh oh riley time",
+      "clientSecret":"don't try to be too clever!"
+    }
+  },
+  "universal-analytics": {
+    "account-ID":"",
+    "url":"http://cubalgs-cubalgs.rhcloud.com",
+    "name":"Home"
+  }
+}
