@@ -9,15 +9,15 @@ module.exports = (function() {
 
   var AlgSchema = new mongoose.Schema({
     _id: {type: ObjectId, unique: true},
-    _creator: {type: Schema.types.ObjectId, ref: 'User'},
+    _creator: {type: Schema.Types.ObjectId, ref: 'User'},
     alg: {type: String, unique: true},
     case: {},
     description: String,
     events: [String],
     type: [String],
-    users: [{type: Schema.types.ObjectId, ref: 'User'}],
-    likes: [{type: Schema.types.ObjectId, ref: 'User'}],
-    comments: [{type: Schema.types.ObjectId, ref: 'Comment'}],
+    users: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    likes: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
     _createdAt: {type: Date, default: Date.now},
     _updatedAt: {type: Date, default: Date.now}
   });

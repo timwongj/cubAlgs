@@ -9,9 +9,9 @@ module.exports = (function() {
 
   var ReplySchema = new mongoose.Schema({
     _id: {type: ObjectId, unique: true},
-    _creator: {type: Schema.types.ObjectId, ref: 'User'},
+    _creator: {type: Schema.Types.ObjectId, ref: 'User'},
     content: String,
-    likes: [{type: Schema.types.ObjectId, ref: 'User'}],
+    likes: [{type: Schema.Types.ObjectId, ref: 'User'}],
     _createdAt: {type: Date, default: Date.now},
     _updatedAt: {type: Date, default: Date.now}
   });

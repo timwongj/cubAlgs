@@ -9,7 +9,7 @@ module.exports = (function() {
 
   var BldSchemeSchema = new mongoose.Schema({
     _id: {type: ObjectId, unique: true},
-    _creator: {type: Schema.types.ObjectId, ref: 'User'},
+    _creator: {type: Schema.Types.ObjectId, ref: 'User'},
     buffers: {
       x3Cube: {
         edges: String,
