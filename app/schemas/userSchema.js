@@ -22,7 +22,7 @@ module.exports = (function() {
     provider: String,
     locale: String,
     timezone: String,
-    bldScheme: {type: Schema.types.ObjectId, ref: 'BldScheme'},
+    bldScheme: {type: Schema.Types.ObjectId, ref: 'BldScheme'},
     profPic: String,
     wcaID: String,
     links: [],
