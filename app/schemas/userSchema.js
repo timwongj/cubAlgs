@@ -8,7 +8,7 @@ module.exports = (function() {
   var ObjectId = Schema.ObjectId;
 
   var UserSchema = new mongoose.Schema({
-    id: ObjectId,
+    _id: {type: ObjectId, unique: true},
     facebook_id: String,
     username: String,
     displayName: String,
@@ -22,19 +22,12 @@ module.exports = (function() {
     provider: String,
     locale: String,
     timezone: String,
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now
-    },
-    bldScheme: {},
+    bldScheme: {type: Schema.types.ObjectId, ref: 'BldScheme'},
     profPic: String,
     wcaID: String,
     links: [],
-    other: {}
+    _createdAt: {type: Date, default: Date.now},
+    _updatedAt: {type: Date, default: Date.now}
   });
 
   var User = mongoose.model('User', UserSchema);

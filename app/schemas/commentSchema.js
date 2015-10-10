@@ -8,19 +8,13 @@ module.exports = (function() {
   var ObjectId = Schema.ObjectId;
 
   var CommentSchema = new mongoose.Schema({
-    id: ObjectId,
-    createdBy: {},
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now
-    },
-    likes: [],
-    replies: [],
-    other: {}
+    _id: {type: ObjectId, unique: true},
+    _creator: {type: Schema.types.ObjectId, ref: 'User'},
+    content: String,
+    likes: [{type: Schema.types.ObjectId, ref: 'User'}],
+    replies: [{type: Schema.types.ObjectId, ref: 'Reply'}],
+    _createdAt: {type: Date, default: Date.now},
+    _updatedAt: {type: Date, default: Date.now}
   });
 
   var Comment = mongoose.model('Comment', CommentSchema);
