@@ -7,23 +7,17 @@ module.exports = (function() {
   var Schema = mongoose.Schema;
   var ObjectId = Schema.ObjectId;
 
-  var AlgSchema = new mongoose.Schema({
+  var ReplySchema = new mongoose.Schema({
     _id: {type: ObjectId, unique: true},
     _creator: {type: Schema.types.ObjectId, ref: 'User'},
-    alg: {type: String, unique: true},
-    case: {},
-    description: String,
-    events: [String],
-    type: [String],
-    users: [{type: Schema.types.ObjectId, ref: 'User'}],
+    content: String,
     likes: [{type: Schema.types.ObjectId, ref: 'User'}],
-    comments: [{type: Schema.types.ObjectId, ref: 'Comment'}],
     _createdAt: {type: Date, default: Date.now},
     _updatedAt: {type: Date, default: Date.now}
   });
 
-  var Alg = mongoose.model('Alg', AlgSchema);
+  var Reply = mongoose.model('Reply', ReplySchema);
 
-  return Alg;
+  return Reply;
 
 })();

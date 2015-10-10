@@ -14,7 +14,6 @@
   var mongoose = require('mongoose');
   var passport = require('passport');
   var config = require('config');
-  var ua = require('universal-analytics');
 
   var fbAuth = require('./app/middleware/authentication');
 
