@@ -8,7 +8,8 @@ module.exports = (function() {
   var ObjectId = Schema.ObjectId;
 
   var BldSchemeSchema = new mongoose.Schema({
-    id: ObjectId,
+    _id: {type: ObjectId, unique: true},
+    _creator: {type: Schema.types.ObjectId, ref: 'User'},
     buffers: {
       x3Cube: {
         edges: String,
@@ -93,14 +94,8 @@ module.exports = (function() {
       x4Cube: {},
       x5Cube: {}
     },
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now
-    }
+    _createdAt: {type: Date, default: Date.now},
+    _updatedAt: {type: Date, default: Date.now}
   });
 
   var BldScheme = mongoose.model('BldScheme', BldSchemeSchema);
