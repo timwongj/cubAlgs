@@ -1,0 +1,40 @@
+<div id="algorithms">
+
+  <div class="header">
+    <h2 class="title">Algorithms</h2>
+    <button class="btn btn-success btn-sm btn-create-algorithm" ng-click="createAlgorithm()">
+      <i class="fa fa-plus"></i> Create Algorithm
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table algs-table">
+      <thead>
+      <tr>
+        <th class="case">Case</th>
+        <th class="alg">Alg</th>
+        <th class="description">Description</th>
+        <th class="tags">Tags</th>
+        <th class="actions"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="algorithm in algorithms">
+        <td class="case">
+          <p ng-repeat="(source, target) in algorithm.case" ng-bind="source + ' -> ' + target"></p>
+        </td>
+        <td class="alg" ng-bind="algorithm.alg"></td>
+        <td class="description" ng-bind="algorithm.description"></td>
+        <td class="tags">
+          <p class="label label-primary tag" ng-repeat="tag in algorithm.tags" ng-bind="tag"></p>
+        </td>
+        <td class="actions">
+          <button class="btn btn-xs btn-default btn-edit"><i class="fa fa-pencil"></i></button>
+          <button class="btn btn-xs btn-danger btn-remove"><i class="fa fa-remove"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

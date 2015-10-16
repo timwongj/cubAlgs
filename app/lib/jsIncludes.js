@@ -9,11 +9,17 @@ module.exports = (function() {
    */
   jsIncludes.cubAlgsUnminified = [
     'app/public/app.js',
+
+    //controllers
     'app/public/controller.js',
-    'app/public/components/admin/admin.controller.js',
-    'app/public/components/algorithms/algorithms.controller.js',
-    'app/public/components/home/home.controller.js',
-    'app/public/components/profile/profile.controller.js'
+    'app/public/components/cubAlgs/admin/admin.controller.js',
+    'app/public/components/cubAlgs/algorithms/algorithms.controller.js',
+    'app/public/components/cubAlgs/algorithms/createAlgorithm.controller.js',
+    'app/public/components/cubAlgs/home/home.controller.js',
+    'app/public/components/cubAlgs/profile/profile.controller.js',
+
+    //services
+    'app/public/components/shared/services/tags.service.js'
   ];
 
   /**

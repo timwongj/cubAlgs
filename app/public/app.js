@@ -5,19 +5,19 @@
   function Config($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/dist/components/home/home.html',
+        templateUrl: '/dist/components/cubAlgs/home/home.html',
         controller: 'HomeController'
       })
       .when('/profile', {
-        templateUrl: '/dist/components/profile/profile.html',
+        templateUrl: '/dist/components/cubAlgs/profile/profile.html',
         controller: 'ProfileController'
       })
       .when('/algorithms', {
-        templateUrl: '/dist/components/algorithms/algorithms.html',
+        templateUrl: '/dist/components/cubAlgs/algorithms/algorithms.html',
         controller: 'AlgorithmsController'
       })
       .when('/admin', {
-        templateUrl: '/dist/components/admin/admin.html',
+        templateUrl: '/dist/components/cubAlgs/admin/admin.html',
         controller: 'AdminController'
       })
       .otherwise({

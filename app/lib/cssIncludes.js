@@ -8,6 +8,7 @@ module.exports = (function() {
    * Cub Algs client side unminified js files
    */
   cssIncludes.cubAlgsUnminified = [
+    'app/public/less/cubAlgs.less',
     'app/public/less/algorithms.less'
   ];
 

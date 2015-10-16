@@ -9,7 +9,7 @@ module.exports = (function() {
 
   var AlgSchema = new mongoose.Schema({
     alg: {type: String, unique: true},
-    case: {},
+    moveCount: Number,
     description: String,
     tags: [String],
     events: [String],

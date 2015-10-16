@@ -2,10 +2,9 @@
 
   'use strict';
 
-  function AlgorithmsController($scope, $resource) {
+  function CreateAlgorithmController($scope, $resource, $modalInstance, TagsService) {
 
     var Algs = $resource('/algs');
-    $scope.algorithms = Algs.query();
 
     $scope.algorithm = {};
 
@@ -39,10 +38,14 @@
         console.log(response);
       });
 
-    }
+    };
+
+    $scope.cancel = function() {
+      $modalInstance.close();
+    };
 
   }
 
-  angular.module('CubAlgs').controller('AlgorithmsController', ['$scope', '$resource', AlgorithmsController]);
+  angular.module('CubAlgs').controller('CreateAlgorithmController', ['$scope', '$resource', '$modalInstance', 'TagsService', CreateAlgorithmController]);
 
 })();
