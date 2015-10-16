@@ -5,7 +5,7 @@
   module.exports = function(grunt) {
 
     grunt.config('uglify', {
-      my_target: {
+      cubAlgsJs: {
         files: {
           'dist/js/cubAlgs.min.js': ['dist/js/cubAlgs.js']
         }
