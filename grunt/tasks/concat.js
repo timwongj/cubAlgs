@@ -5,6 +5,7 @@
   module.exports = function(grunt) {
 
     var jsIncludes = require('../../app/lib/jsIncludes');
+    var cssIncludes = require('../../app/lib/cssIncludes');
 
     grunt.config('concat', {
       cubAlgsJs: {
@@ -15,19 +16,12 @@
         src: jsIncludes.thirdPartyMinified,
         dest: 'dist/js/lib.min.js'
       },
-      cubAlgsCss: {
-        src: [
-          'app/public/css/style.css'
-        ],
-        dest: 'dist/css/cubAlgs.css'
-
+      cubAlgsLess: {
+        src: cssIncludes.cubAlgsUnminified,
+        dest: 'dist/css/cubAlgs.less'
       },
       libCss: {
-        src: [
-          'bower_components/bootstrap/dist/css/bootstrap.min.css',
-          'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
-          'bower_components/components-font-awesome/css/font-awesome.min.css'
-        ],
+        src: cssIncludes.thirdPartyMinified,
         dest: 'dist/css/lib.css'
       }
     });

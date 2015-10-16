@@ -23,6 +23,8 @@ module.exports = (function() {
     locale: String,
     timezone: String,
     bldScheme: {type: Schema.Types.ObjectId, ref: 'BldScheme'},
+    algs: [{type: Schema.Types.ObjectId, ref: 'Alg'}],
+    letterPairWords: [{type: Schema.Types.ObjectId, ref: 'LetterPairWord'}],
     profPic: String,
     wcaID: String,
     links: [],

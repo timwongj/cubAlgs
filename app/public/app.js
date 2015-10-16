@@ -12,6 +12,10 @@
         templateUrl: '/dist/components/profile/profile.html',
         controller: 'ProfileController'
       })
+      .when('/algorithms', {
+        templateUrl: '/dist/components/algorithms/algorithms.html',
+        controller: 'AlgorithmsController'
+      })
       .when('/admin', {
         templateUrl: '/dist/components/admin/admin.html',
         controller: 'AdminController'

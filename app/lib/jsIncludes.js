@@ -10,8 +10,9 @@ module.exports = (function() {
   jsIncludes.cubAlgsUnminified = [
     'app/public/app.js',
     'app/public/controller.js',
-    'app/public/components/home/home.controller.js',
     'app/public/components/admin/admin.controller.js',
+    'app/public/components/algorithms/algorithms.controller.js',
+    'app/public/components/home/home.controller.js',
     'app/public/components/profile/profile.controller.js'
   ];
 

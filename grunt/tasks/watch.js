@@ -5,8 +5,18 @@
   module.exports = function(grunt) {
 
     grunt.config('watch', {
-      files: ['server.js', 'app/**/*', 'test/**/*', 'config/**/*', 'grunt/**/*', 'Gruntfile.js'],
-      tasks: ['jshint', 'copy', 'concat', 'uglify']
+      html: {
+        files: ['app/**/*.html'],
+        tasks: ['copy']
+      },
+      js: {
+        files: ['server.js', 'app/**/*.js', 'test/**/*', 'config/**/*', 'grunt/**/*', 'Gruntfile.js'],
+        tasks: ['jshint', 'concat', 'uglify']
+      },
+      css: {
+        files: ['app/public/less/*.less'],
+        tasks: ['concat', 'less:development']
+      }
     });
 
     grunt.registerTask('watch', function() {

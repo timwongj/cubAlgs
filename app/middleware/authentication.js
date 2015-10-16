@@ -40,6 +40,7 @@ module.exports = (function() {
             }
             return done(null, user);
           } else {
+            console.log(profile);
             var newUser = new User({
               facebook_id: profile.id,
               username: profile.username,

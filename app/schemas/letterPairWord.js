@@ -11,7 +11,7 @@ module.exports = (function() {
     _id: {type: ObjectId, unique: true},
     _creator: {type: Schema.Types.ObjectId, ref: 'User'},
     letters: {},
-    word: {type: String, unique: true},
+    word: {type: String},
     tags: [String],
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     likes: [{type: Schema.Types.ObjectId, ref: 'User'}],
