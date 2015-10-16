@@ -45,18 +45,19 @@ module.exports = (function() {
      * @param res
      */
     createAlg: function(req, res) {
-      var alg = new Alg({
-        events: req.body.events,
-        case: req.body.case,
-        alg: req.body.alg,
-        description: req.body.description,
-        createdBy: req.user
-      });
+      var alg = new Alg();
+      alg.alg = req.body.alg;
+      alg.case = req.body.case;
+      alg.description = req.body.description;
+      alg.tags = req.body.tags;
+      alg.events = req.body.events;
+      alg.type = req.body.type;
       alg.save(function(err) {
         if (err) {
+          throw err;
           res.status(500).json({'message': 'cannot save alg'});
         } else {
-          res.json(alg);
+          res.status(200).json(alg);
         }
       });
     },

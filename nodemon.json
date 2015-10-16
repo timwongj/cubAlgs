@@ -3,8 +3,10 @@
   "verbose": true,
   "watch": [
     "server.js",
-    "app/middleware",
-    "app/models",
-    "app/routes"
+    "app/controllers/**/*",
+    "app/middleware/**/*",
+    "app/models/**/*",
+    "app/routers/**/*",
+    "app/schemas/**/*"
   ]
 }

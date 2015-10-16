@@ -8,7 +8,6 @@ module.exports = (function() {
   var ObjectId = Schema.ObjectId;
 
   var UserSchema = new mongoose.Schema({
-    _id: {type: ObjectId, unique: true},
     facebook_id: String,
     username: String,
     displayName: String,
