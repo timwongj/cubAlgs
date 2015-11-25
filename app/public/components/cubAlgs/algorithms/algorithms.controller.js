@@ -4,7 +4,7 @@
 
   function AlgorithmsController($scope, $resource, $modal) {
 
-    var Algs = $resource('/algs');
+    var Algs = $resource('api/algs');
 
     $scope.algorithms = Algs.query();
 

@@ -1,5 +1,5 @@
 var express = require('express');
-var User = require('../schemas/userSchema');
+var User = require('../../schemas/userSchema');
 
 module.exports = (function() {
 

@@ -4,7 +4,7 @@
 
   function CreateAlgorithmController($scope, $resource, $modalInstance, TagsService) {
 
-    var Algs = $resource('/algs');
+    var Algs = $resource('api/algs');
 
     $scope.algorithm = {};
 

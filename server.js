@@ -17,11 +17,10 @@
 
   var fbAuth = require('./app/middleware/authentication');
 
-  var authRouter = require('./app/routers/authRouter');
-  var userRouter = require('./app/routers/userRouter');
-  var algRouter = require('./app/routers/algRouter');
-
   var app = express();
+
+  var apiRouter = require('./app/routes/apiRouter');
+  var authRouter = require('./app/routes/authRouter');
 
   app.use(morgan('dev'));
   app.use(bodyParser.json());
@@ -41,11 +40,9 @@
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use('/dist', express.static(__dirname + '/dist'));
-
   app.use('/auth', authRouter);
-  app.use('/users', userRouter);
-  app.use('/algs', algRouter);
+  app.use('/api', apiRouter);
+  app.use('/dist', express.static(__dirname + '/dist'));
 
   passport.serializeUser(function(user, done) {
     done(null, user);

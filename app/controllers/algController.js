@@ -1,88 +1,133 @@
-var express = require('express');
 var Alg = require('../schemas/algSchema');
+var algService = require('../services/algService');
+var Promise = require('bluebird');
+var statusCodes = require('../lib/statusCodes');
 
 module.exports = (function() {
 
   'use strict';
 
-  var algController = {
+  return {
 
     /**
      * Get algs given query.
      * @param req
      * @param res
+     * @param next
      */
-    getAlgs: function(req, res) {
+    getAlgs: function(req, res, next) {
+
       Alg.find(req.query)
         .exec(function(err, algs) {
         if (err) {
-          res.status(500).json({'message':'cannot get alg'});
+          res.status(statusCodes.BAD_REQUEST).json(err.message);
         } else {
           res.json(algs);
         }
       });
+
     },
 
     /**
      * Get alg given mongo id.
      * @param req
      * @param res
+     * @param next
      */
-    getAlg: function(req, res) {
-      Alg.findOne({id: req.params.id})
+    getAlg: function(req, res, next) {
+
+      Alg.findOne({_id: req.params._id})
         .exec(function(err, alg) {
         if (err) {
-          res.status(500).json({'message': 'cannot get alg for id: ' + req.params.id});
+          res.status(statusCodes.BAD_REQUEST).json(err.message);
         } else {
           res.json(alg);
         }
       });
+
     },
 
     /**
      * Create new alg.
      * @param req
      * @param res
+     * @param next
      */
-    createAlg: function(req, res) {
-      var alg = new Alg();
-      alg.alg = req.body.alg;
-      alg.case = req.body.case;
-      alg.description = req.body.description;
-      alg.tags = req.body.tags;
-      alg.events = req.body.events;
-      alg.type = req.body.type;
-      alg.save(function(err) {
-        if (err) {
-          if (err.code === 11000) {
-            res.status(409).json({'message': 'alg already exists'});
-          } else {
-            res.status(500).json({'message': 'cannot save alg'});
-          }
-        } else {
-          res.status(200).json(alg);
-        }
-      });
+    createAlg: function(req, res, next) {
+
+      // TODO - add req.user as creator
+
+      algService.validateAlg(req.body.alg, req.body.case)
+        .then(function(moves) {
+          var alg = new Alg({
+            alg: req.body.alg,
+            case: req.body.case,
+            moveCount: moves,
+            description: req.body.description,
+            tags: req.body.tags,
+            events: req.body.events,
+            type: req.body.type
+          });
+          alg.save(function(err) {
+            if (err) {
+              res.status(statusCodes.BAD_REQUEST).json(err.message);
+            } else {
+              res.json(alg);
+            }
+          });
+        })
+        .catch(next);
+
     },
 
     /**
      * Update alg given id.
      * @param req
      * @param res
+     * @param next
      */
-    updateAlg: function(req, res) {
-      Alg.update({id: req.params.id})
-        .exec(function(err, alg) {
-        if (err) {
-          res.status(500).json({'message': 'cannot update alg for id: ' + req.params.id});
-        } else {
-          req.json(alg);
-        }
-      });
+    updateAlg: function(req, res, next) {
+
+      // TODO - validate that authorized user is updating
+
+      algService.validateAlg(req.body.alg, req.body.case)
+        .then(function(moves) {
+          Alg.findByIdAndUpdate(req.params._id, {
+            alg: req.body.alg,
+            case: req.body.case,
+            moveCount: moves,
+            description: req.body.description,
+            tags: req.body.tags,
+            events: req.body.events,
+            type: req.body.type,
+            _updatedAt: Date.now()
+          }, { runValidators: true }, function(err, alg) {
+            if (err) {
+              res.status(statusCodes.BAD_REQUEST).json(err.message);
+            } else {
+              res.json(alg);
+            }
+          });
+        })
+        .catch(next);
+
+    },
+
+    removeAlg: function(req, res, next) {
+
+      // TODO - validate that authorized user is deleting
+
+      Alg.remove({_id: req.params._id})
+        .exec(function(err, response) {
+          if (err) {
+            res.status(statusCodes.BAD_REQUEST).json(err.message);
+          } else {
+            res.json(response);
+          }
+        });
+
     }
 
   };
-
-  return algController;
 
 })();

@@ -2,11 +2,13 @@
   "restartable": "rs",
   "verbose": true,
   "watch": [
+    "nodemon.json",
     "server.js",
     "app/controllers/**/*",
     "app/middleware/**/*",
     "app/models/**/*",
     "app/routers/**/*",
-    "app/schemas/**/*"
+    "app/schemas/**/*",
+    "app/services/**/*"
   ]
 }

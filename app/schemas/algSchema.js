@@ -5,14 +5,15 @@ module.exports = (function() {
   'use strict';
 
   var Schema = mongoose.Schema;
-  var ObjectId = Schema.ObjectId;
 
   var AlgSchema = new mongoose.Schema({
-    alg: {type: String, unique: true},
-    moveCount: Number,
+    alg: {type: String, unique: true, required: true},
+    case: {type: {}, required: true},
+    caseName: {type: String},
+    moveCount: {type: Number, required: true},
     description: String,
     tags: [String],
-    events: [String],
+    events: {type: [String], required: true},
     type: [String],
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     likes: [{type: Schema.Types.ObjectId, ref: 'User'}],
